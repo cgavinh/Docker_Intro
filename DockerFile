@@ -1,0 +1,23 @@
+#############################################################
+#  FROM gives the base image. could be "linux" or "node"
+#  "node" is already built on linux image
+#  full list of images on dockerhub
+# specifiy distribution after the semi-colon
+#############################################################
+FROM node:alpine
+
+#############################################################
+#  copy all files in current directory into
+#  copy into app directory in image
+#  image has file system, in that file system we create directory "app"
+#############################################################
+
+COPY . /app
+
+#############################################################
+#  use CMD instruction to execute command
+# alt to giving full file path:
+## WORKDIR /app
+#############################################################
+
+CMD node /app/app.js
